@@ -20,6 +20,9 @@ class CreateCategoryChildrenTable extends Migration
             $table->longText('deskripsi');
             $table->string('src_foto');
             $table->timestamps();
+
+            $table->index('category_id');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

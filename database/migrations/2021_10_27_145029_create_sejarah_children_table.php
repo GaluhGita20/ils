@@ -20,6 +20,9 @@ class CreateSejarahChildrenTable extends Migration
             $table->longText('deskripsi');
             $table->string('src_foto');
             $table->timestamps();
+
+            $table->index('sejarah_id');
+            $table->foreign('sejarah_id')->references('id')->on('sejarahs')->onDelete('cascade');
         });
     }
 

@@ -20,6 +20,9 @@ class CreatePembangunanChildrenTable extends Migration
             $table->longText('deskripsi');
             $table->string('src_foto');
             $table->timestamps();
+
+            $table->index('pembangunan_id');
+            $table->foreign('pembangunan_id')->references('id')->on('pembangunans')->onDelete('cascade');
         });
     }
 
