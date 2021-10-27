@@ -33,6 +33,10 @@ class CreatePembangunanChildrenTable extends Migration
      */
     public function down()
     {
+        Schema::create('pembangunan_children', function (Blueprint $table) {
+            $table->dropForeign(['pembangunan_id']);
+            $table->dropColumn('pembangunan_id');
+        });
         Schema::dropIfExists('pembangunan_children');
     }
 }

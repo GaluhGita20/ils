@@ -33,6 +33,10 @@ class CreateSejarahChildrenTable extends Migration
      */
     public function down()
     {
+        Schema::create('sejarah_children', function (Blueprint $table) {
+            $table->dropForeign(['sejarah_id']);
+            $table->dropColumn('sejarah_id');
+        });
         Schema::dropIfExists('sejarah_children');
     }
 }

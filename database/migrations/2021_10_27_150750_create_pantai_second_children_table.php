@@ -31,6 +31,10 @@ class CreatePantaiSecondChildrenTable extends Migration
      */
     public function down()
     {
+        Schema::create('pantai_second_children', function (Blueprint $table) {
+            $table->dropForeign(['pantai_children_id']);
+            $table->dropColumn('pantai_children_id');
+        });
         Schema::dropIfExists('pantai_second_children');
     }
 }

@@ -33,6 +33,10 @@ class CreateCategoryChildrenTable extends Migration
      */
     public function down()
     {
+        Schema::create('category_children', function (Blueprint $table) {
+            $table->dropForeign(['category_id']);
+            $table->dropColumn('category_id');
+        });
         Schema::dropIfExists('category_children');
     }
 }
