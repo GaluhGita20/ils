@@ -19,6 +19,9 @@ class CreatePantaiChildrenTable extends Migration
             $table->string('judul');
             $table->longText('deskripsi');
             $table->timestamps();
+
+            $table->index('pantai_id');
+            $table->foreign('pantai_id')->references('id')->on('pantais')->onDelete('cascade');
         });
     }
 

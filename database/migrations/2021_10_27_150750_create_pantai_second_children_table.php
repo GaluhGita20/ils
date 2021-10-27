@@ -18,6 +18,9 @@ class CreatePantaiSecondChildrenTable extends Migration
             $table->unsignedBigInteger('pantai_children_id');
             $table->string('src_foto');
             $table->timestamps();
+
+            $table->index('pantai_children_id');
+            $table->foreign('pantai_children_id')->references('id')->on('pantai_children')->onDelete('cascade');
         });
     }
 
